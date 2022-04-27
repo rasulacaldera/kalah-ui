@@ -9,7 +9,7 @@ import { NotificationService } from 'src/services/notification.service';
 })
 export class HomeComponent implements OnInit {
 
-  currentGame: any = {};
+  currentGame: any;
 
   constructor(private gamesService: GameService,
     private notificationService: NotificationService) { }

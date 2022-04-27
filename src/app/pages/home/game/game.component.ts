@@ -28,11 +28,15 @@ export class GameComponent implements OnInit {
     this.onMakeMove.emit(pit.index)
   }
 
-  getPlayerBuckets(player: string) {
+  getPlayerPits(player: string) {
     if (player === 'PLAYER_TWO') {
-      return this.buckets.filter(bucket => bucket.owner === player).sort(this.compare)
+      return this.buckets.filter(bucket => bucket.owner === player && bucket.type === 'PIT').sort(this.compare)
     }
-    return this.buckets.filter(bucket => bucket.owner === player)
+    return this.buckets.filter(bucket => bucket.owner === player && bucket.type === 'PIT')
+  }
+
+  getPlayerHouseCount(player: string) {
+    return this.buckets.filter(bucket => bucket.owner === player && bucket.type === 'HOUSE')[0].stoneCount
   }
 
   compare(a: any, b: any) {

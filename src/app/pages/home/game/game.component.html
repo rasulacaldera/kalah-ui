@@ -1,49 +1,43 @@
-<!-- <div class="row">
-  <div class="col-md-12">
-    <P>{{ game.gameStatus }}</P>
-    <P>{{ game.nextPlayer }}</P>
-    <game-row
-      [buckets]="getPlayerBuckets('PLAYER_TWO')"
-      (onMakeMove)="onMove($event)"
-    ></game-row>
-    <game-row
-      [buckets]="getPlayerBuckets('PLAYER_ONE')"
-      (onMakeMove)="onMove($event)"
-    ></game-row>
-  </div>
-</div> -->
 <div class="row">
-  <div class="col-md-12 game-state">Game In Progress</div>
-  <div class="col-md-12 game-state">Player 2 Turn</div>
+  <div class="col-md-12 game-state">{{ game.gameStatus }}</div>
+  <div class="col-md-12 game-state">{{ game.nextPlayer }}</div>
 </div>
 <div class="position-center">
   <div class="board">
     <div class="section endsection">
       <div class="pot end-section-height" id="mb">
-        <div class="end-section-inner-text">31</div>
+        <div class="end-section-inner-text">
+          {{ getPlayerHouseCount("PLAYER_TWO") }}
+        </div>
       </div>
     </div>
     <div class="section midsection">
       <div class="midrow topmid">
-        <div class="pot" id="pt1"><div class="pot-inner-text">13</div></div>
-        <div class="pot" id="pt2"><div class="pot-inner-text">3</div></div>
-        <div class="pot" id="pt3"><div class="pot-inner-text">4</div></div>
-        <div class="pot" id="pt4"><div class="pot-inner-text">1</div></div>
-        <div class="pot" id="pt5"><div class="pot-inner-text">34</div></div>
-        <div class="pot" id="pt6"><div class="pot-inner-text">6</div></div>
+        <div
+          (click)="onMove(pit)"
+          class="pot"
+          id="pt1"
+          *ngFor="let pit of getPlayerPits('PLAYER_TWO')"
+        >
+          <div class="pot-inner-text">{{ pit.stoneCount }}</div>
+        </div>
       </div>
       <div class="midrow botmid">
-        <div class="pot" id="pb6"><div class="pot-inner-text">6</div></div>
-        <div class="pot" id="pb5"><div class="pot-inner-text">2</div></div>
-        <div class="pot" id="pb4"><div class="pot-inner-text">4</div></div>
-        <div class="pot" id="pb3"><div class="pot-inner-text">13</div></div>
-        <div class="pot" id="pb2"><div class="pot-inner-text">5</div></div>
-        <div class="pot" id="pb1"><div class="pot-inner-text">31</div></div>
+        <div
+          (click)="onMove(pit)"
+          class="pot"
+          id="pt1"
+          *ngFor="let pit of getPlayerPits('PLAYER_ONE')"
+        >
+          <div class="pot-inner-text">{{ pit.stoneCount }}</div>
+        </div>
       </div>
     </div>
     <div class="section endsection">
       <div class="pot end-section-height" id="mt">
-        <div class="end-section-inner-text">7</div>
+        <div class="end-section-inner-text">
+          {{ getPlayerHouseCount("PLAYER_ONE") }}
+        </div>
       </div>
     </div>
   </div>
