@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'game',
@@ -8,9 +8,33 @@ import { Component, Input, OnInit } from '@angular/core';
 export class GameComponent implements OnInit {
 
   @Input() game: any;
+  @Output() onMakeMove = new EventEmitter<string>();
+
+
+  buckets: any[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes["game"].currentValue && changes["game"].currentValue.buckets) {
+      this.buckets = changes["game"].currentValue.buckets.sort(this.compare);
+    }
+  }
+
+  onMove(pit: any) {
+    this.onMakeMove.emit(pit.index)
+  }
+
+  compare(a: any, b: any) {
+    if (a.index > b.index) {
+      return -1;
+    }
+    if (a.index < b.index) {
+      return 1;
+    }
+    return 0;
   }
 }

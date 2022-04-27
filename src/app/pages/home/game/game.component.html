@@ -1,1 +1,12 @@
-<p>{{ game | json }}</p>
+<div class="row">
+  <P>{{ game.gameStatus }}</P>
+  <P>{{ game.nextPlayer }}</P>
+  <div
+    (click)="onMove(bucket)"
+    *ngFor="let bucket of buckets"
+    class="col-md-3 card"
+  >
+    <div class="row">{{ bucket.index }}</div>
+    <div class="row">{{ bucket.stoneCount }}</div>
+  </div>
+</div>

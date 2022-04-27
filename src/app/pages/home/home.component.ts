@@ -21,4 +21,10 @@ export class HomeComponent implements OnInit {
       this.currentGame = res;
     });
   }
+
+  onMove(pit: any) {
+    this.gamesService.makeMove(this.currentGame.gameId, pit).subscribe(res => {
+      this.currentGame = res;
+    });
+  }
 }
