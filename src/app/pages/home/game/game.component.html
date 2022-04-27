@@ -1,22 +1,12 @@
 <div class="row">
   <P>{{ game.gameStatus }}</P>
   <P>{{ game.nextPlayer }}</P>
-  <div
-    (click)="onMove(bucket)"
-    *ngFor="let bucket of getPlayerBuckets('PLAYER_TWO')"
-    class="col-md-1 card"
-  >
-    <div class="row">{{ bucket.index }}</div>
-    <div class="row">{{ bucket.stoneCount }}</div>
-  </div>
-</div>
-<div class="row">
-  <div
-    (click)="onMove(bucket)"
-    *ngFor="let bucket of getPlayerBuckets('PLAYER_ONE')"
-    class="col-md-1 card"
-  >
-    <div class="row">{{ bucket.index }}</div>
-    <div class="row">{{ bucket.stoneCount }}</div>
-  </div>
+  <game-row
+    [buckets]="getPlayerBuckets('PLAYER_TWO')"
+    (onMakeMove)="onMove($event)"
+  ></game-row>
+  <game-row
+    [buckets]="getPlayerBuckets('PLAYER_ONE')"
+    (onMakeMove)="onMove($event)"
+  ></game-row>
 </div>

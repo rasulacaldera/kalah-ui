@@ -28,6 +28,13 @@ export class GameComponent implements OnInit {
     this.onMakeMove.emit(pit.index)
   }
 
+  getPlayerBuckets(player: string) {
+    if (player === 'PLAYER_TWO') {
+      return this.buckets.filter(bucket => bucket.owner === player).sort(this.compare)
+    }
+    return this.buckets.filter(bucket => bucket.owner === player)
+  }
+
   compare(a: any, b: any) {
     if (a.index > b.index) {
       return -1;
@@ -38,10 +45,4 @@ export class GameComponent implements OnInit {
     return 0;
   }
 
-  getPlayerBuckets(player: string) {
-    if (player === 'PLAYER_TWO') {
-      return this.buckets.filter(bucket => bucket.owner === player).sort(this.compare)
-    }
-    return this.buckets.filter(bucket => bucket.owner === player)
-  }
 }

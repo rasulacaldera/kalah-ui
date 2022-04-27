@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateGameComponent } from './home/create-game/create-game.component';
 import { GameComponent } from './home/game/game.component';
+import { GameRowComponent } from './home/game-row/game-row.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { GameComponent } from './home/game/game.component';
     HomeComponent,
     CreateGameComponent,
     GameComponent,
+    GameRowComponent,
   ],
   imports: [
     CommonModule,
