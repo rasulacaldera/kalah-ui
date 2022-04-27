@@ -1,25 +1,29 @@
 <div class="center-align">
-  <form [formGroup]="gameForm" class="row">
-    <div class="col-md-4">
-      <label for="playerOneName">Player 1: </label>
+  <form [formGroup]="gameForm" class="row wd-100">
+    <div class="col-md-3">
+      <!-- <label for="playerOneName">Player 1: </label> -->
       <input
         id="playerOneName"
+        placeholder="Player 1 Name"
         type="text"
         formControlName="playerOneName"
         class="form-control"
       />
     </div>
-    <div class="col-md-4">
-      <label for="playerTwoName">Player 2: </label>
+    <div class="col-md-3">
+      <!-- <label for="playerTwoName">Player 2: </label> -->
       <input
         id="playerTwoName"
+        placeholder="Player 2 Name"
         type="text"
         formControlName="playerTwoName"
         class="form-control"
       />
     </div>
+    <div class="col-md-3">
+      <button (click)="createNewGame()" class="btn btn-primary">
+        Start New Game
+      </button>
+    </div>
   </form>
-  <button (click)="createNewGame()" class="btn btn-primary">
-    Start New Game
-  </button>
 </div>
