@@ -1,0 +1,25 @@
+<div class="center-align">
+  <form [formGroup]="gameForm" class="row">
+    <div class="col-md-4">
+      <label for="playerOneName">Player 1: </label>
+      <input
+        id="playerOneName"
+        type="text"
+        formControlName="playerOneName"
+        class="form-control"
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="playerTwoName">Player 2: </label>
+      <input
+        id="playerTwoName"
+        type="text"
+        formControlName="playerTwoName"
+        class="form-control"
+      />
+    </div>
+  </form>
+  <button (click)="createNewGame()" class="btn btn-primary">
+    Start New Game
+  </button>
+</div>

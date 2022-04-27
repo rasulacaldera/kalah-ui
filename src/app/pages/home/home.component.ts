@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from 'src/services/game.service';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  weeklyPlanList: any = [];
-  errorMsg: string = '';
+  game: any = {};
 
-  constructor() { }
+  constructor(private gamesService: GameService) { }
 
   ngOnInit(): void {
 
   }
 
+  onCreateNewGame(game: any) {
+    this.gamesService.createBug(game).subscribe(res => {
+      game = res;
+      console.log(game)
+    });
+  }
 }
