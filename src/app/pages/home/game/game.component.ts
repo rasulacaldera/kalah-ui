@@ -20,7 +20,7 @@ export class GameComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes["game"].currentValue && changes["game"].currentValue.buckets) {
-      this.buckets = changes["game"].currentValue.buckets.sort(this.compare);
+      this.buckets = changes["game"].currentValue.buckets
     }
   }
 
@@ -36,5 +36,12 @@ export class GameComponent implements OnInit {
       return 1;
     }
     return 0;
+  }
+
+  getPlayerBuckets(player: string) {
+    if (player === 'PLAYER_TWO') {
+      return this.buckets.filter(bucket => bucket.owner === player).sort(this.compare)
+    }
+    return this.buckets.filter(bucket => bucket.owner === player)
   }
 }

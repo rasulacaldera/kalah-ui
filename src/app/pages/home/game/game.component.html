@@ -3,8 +3,18 @@
   <P>{{ game.nextPlayer }}</P>
   <div
     (click)="onMove(bucket)"
-    *ngFor="let bucket of buckets"
-    class="col-md-3 card"
+    *ngFor="let bucket of getPlayerBuckets('PLAYER_TWO')"
+    class="col-md-1 card"
+  >
+    <div class="row">{{ bucket.index }}</div>
+    <div class="row">{{ bucket.stoneCount }}</div>
+  </div>
+</div>
+<div class="row">
+  <div
+    (click)="onMove(bucket)"
+    *ngFor="let bucket of getPlayerBuckets('PLAYER_ONE')"
+    class="col-md-1 card"
   >
     <div class="row">{{ bucket.index }}</div>
     <div class="row">{{ bucket.stoneCount }}</div>
