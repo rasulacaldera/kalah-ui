@@ -8,7 +8,7 @@ import { GameService } from 'src/services/game.service';
 })
 export class HomeComponent implements OnInit {
 
-  game: any = {};
+  currentGame: any = {};
 
   constructor(private gamesService: GameService) { }
 
@@ -18,8 +18,7 @@ export class HomeComponent implements OnInit {
 
   onCreateNewGame(game: any) {
     this.gamesService.createBug(game).subscribe(res => {
-      game = res;
-      console.log(game)
+      this.currentGame = res;
     });
   }
 }
