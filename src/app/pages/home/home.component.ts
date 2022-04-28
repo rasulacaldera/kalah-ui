@@ -20,7 +20,10 @@ export class HomeComponent implements OnInit {
 
   onCreateNewGame(game: any) {
     this.gamesService.createBug(game).subscribe(res => {
+      this.notificationService.showSuccess("Game Started");
       this.currentGame = res;
+    }, err => {
+      this.notificationService.showError(err.error.message);
     });
   }
 
