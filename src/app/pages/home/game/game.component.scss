@@ -101,3 +101,27 @@
 .end-section-inner-text {
   padding-top: 100px;
 }
+
+.position-relative {
+  position: relative;
+}
+
+.winner-watermark {
+  position: absolute;
+  top: 115px;
+  z-index: 1000;
+  right: 25%;
+  font-size: 70px;
+  font-weight: bold;
+}
+
+.disabled-board {
+  div {
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  &:hover {
+    cursor: not-allowed;
+  }
+}

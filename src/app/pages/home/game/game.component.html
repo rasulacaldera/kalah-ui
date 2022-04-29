@@ -1,3 +1,8 @@
+<div *ngIf="isGameFinished()" class="position-relative">
+  <div class="winner-watermark">
+    Winner: {{ getPlayerName(game.winner.playerId) }}
+  </div>
+</div>
 <div *ngIf="!isGameFinished()" class="row">
   <div class="col-md-12 game-state text-end">
     <cd-timer [format]="'ms'"></cd-timer>
@@ -12,7 +17,7 @@
   </div>
 </div>
 <div class="position-center">
-  <div class="board">
+  <div class="board" [ngClass]="{ 'disabled-board': isGameFinished() }">
     <div class="player-banner player2">
       {{ getPlayerName("PLAYER_TWO") }}
     </div>
