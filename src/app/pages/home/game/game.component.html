@@ -4,15 +4,21 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-6 game-state">Next Move: {{ game.nextPlayer }}</div>
+  <div class="col-md-6 game-state">
+    Next Move: {{ getPlayerName(game.nextPlayer) }}
+  </div>
   <div class="col-md-6 game-state text-end">
-    Game Status: {{ game.gameStatus }}
+    Game Status: {{ getLocalizedGameStatus(game.gameStatus) }}
   </div>
 </div>
 <div class="position-center">
   <div class="board">
-    <div class="player-banner player1">Player 1</div>
-    <div class="player-banner player2">Player 2</div>
+    <div class="player-banner player2">
+      {{ getPlayerName("PLAYER_TWO") }}
+    </div>
+    <div class="player-banner player1">
+      {{ getPlayerName("PLAYER_ONE") }}
+    </div>
     <div class="section endsection">
       <div class="pot end-section-height" id="mb">
         <div class="end-section-inner-text">

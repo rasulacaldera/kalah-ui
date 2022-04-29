@@ -49,4 +49,11 @@ export class GameComponent implements OnInit {
     return 0;
   }
 
+  getLocalizedGameStatus(statusId: string) {
+    return statusId === 'IN_PROGRESS' ? "In Progress" : "Game Finished";
+  }
+
+  getPlayerName(playerId: string) {
+    return this.game.players.find((player: any) => player.playerId == playerId).name
+  }
 }
