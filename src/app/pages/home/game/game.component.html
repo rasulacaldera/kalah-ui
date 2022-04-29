@@ -1,5 +1,7 @@
 <div class="row">
-  <div class="col-md-12 game-state text-end">00:45</div>
+  <div class="col-md-12 game-state text-end">
+    <cd-timer [format]="'ms'"></cd-timer>
+  </div>
 </div>
 <div class="row">
   <div class="col-md-6 game-state">Next Move: {{ game.nextPlayer }}</div>

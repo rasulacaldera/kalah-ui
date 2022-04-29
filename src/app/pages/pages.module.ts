@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateGameComponent } from './home/create-game/create-game.component';
 import { GameComponent } from './home/game/game.component';
+import { CdTimerModule } from 'angular-cd-timer';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { GameComponent } from './home/game/game.component';
   imports: [
     CommonModule,
     PagesRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CdTimerModule
   ]
 })
 export class PagesModule { }
