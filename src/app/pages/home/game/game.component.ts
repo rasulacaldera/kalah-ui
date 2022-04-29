@@ -54,6 +54,10 @@ export class GameComponent implements OnInit {
   }
 
   getPlayerName(playerId: string) {
-    return this.game.players.find((player: any) => player.playerId == playerId).name
+    return this.game.players.find((player: any) => player.playerId === playerId).name
+  }
+
+  isGameFinished(): boolean {
+    return this.game.gameStatus === "FINISHED"
   }
 }
